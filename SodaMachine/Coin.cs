@@ -14,15 +14,15 @@ namespace SodaMachine
 
         public double Value
         {
-            get
-            {
-                return value;
-            }
-
+            get => Value;
 
         }
         //Constructor (Spawner)
 
+        public Coin()
+        {
+
+        }
         //Member Methods (Can Do)
     }
 }
