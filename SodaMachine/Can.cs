@@ -14,7 +14,7 @@ namespace SodaMachine
 
         public double Price
         {
-            get => Price;
+            get => price;
         }
         //Constructor (Spawner)
 

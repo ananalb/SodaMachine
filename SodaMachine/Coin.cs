@@ -14,7 +14,7 @@ namespace SodaMachine
 
         public double Value
         {
-            get => Value;
+            get => value;
 
         }
         //Constructor (Spawner)

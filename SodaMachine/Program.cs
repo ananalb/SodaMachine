@@ -10,6 +10,9 @@ namespace SodaMachine
     {
         static void Main(string[] args)
         {
+            Can roobeer = new RootBeer();
+            Customer me = new Customer();
+            me.GatherCoinsFromWallet(roobeer);
             Simulation simulation = new Simulation();
             simulation.Simulate();
         }
