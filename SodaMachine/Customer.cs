@@ -40,11 +40,7 @@ namespace SodaMachine
                     Coin foundCoin = GetCoinFromWallet(UserSelectedCoinName);
                     payment.Add(foundCoin);
                 }
-            }
-          
-          
-           
-              
+            }                       
             
         }
         //Returns a coin object from the wallet based on the name passed into it.
@@ -53,7 +49,7 @@ namespace SodaMachine
         {
             for (int i = 0; i < Wallet.Coins.Count; i++)
             {
-                if(Wallet.Coins[i].Name == coinName)
+                if (Wallet.Coins[i].Name == coinName)
                 {
                     Coin foundCoin = Wallet.Coins[i];
                     Wallet.Coins.Remove(foundCoin);

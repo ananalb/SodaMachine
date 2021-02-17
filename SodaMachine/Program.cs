@@ -13,6 +13,9 @@ namespace SodaMachine
             Can roobeer = new RootBeer();
             Customer me = new Customer();
             me.GatherCoinsFromWallet(roobeer);
+            Can cola = new Cola();
+            Customer you = new Customer();
+            you.GatherCoinsFromWallet(cola);
             Simulation simulation = new Simulation();
             simulation.Simulate();
         }

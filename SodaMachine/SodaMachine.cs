@@ -93,6 +93,8 @@ namespace SodaMachine
         }
         
 
+        //above and below are last methods to do
+
         //This is the main method for calculating the result of the transaction.
         //It takes in the payment from the customer, the soda object they selected, and the customer who is purchasing the soda.
         //This is the method that will determine the following:
