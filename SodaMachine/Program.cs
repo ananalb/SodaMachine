@@ -10,9 +10,9 @@ namespace SodaMachine
     {
         static void Main(string[] args)
         {
-            Can roobeer = new RootBeer();
-            Customer me = new Customer();
-            me.GatherCoinsFromWallet(roobeer);
+            //Can roobeer = new RootBeer();
+            //Customer me = new Customer();
+            //me.GatherCoinsFromWallet(roobeer);
             Can cola = new Cola();
             Customer you = new Customer();
             you.GatherCoinsFromWallet(cola);
