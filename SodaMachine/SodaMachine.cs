@@ -26,11 +26,48 @@ namespace SodaMachine
         //A method to fill the sodamachines register with coin objects.
         public void FillRegister()
         {
-           
+            for (int i = 0; i < 20; i++)
+            {
+                Coin myCoin = new Quarter();
+                _register.Add(myCoin);
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Coin myCoin = new Dime();
+                _register.Add(myCoin);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                Coin myCoin = new Nickel();
+                _register.Add(myCoin);
+            }
+            for (int i = 0; i < 50; i++)
+            {
+                Coin myCoin = new Penny();
+                _register.Add(myCoin);
+            }
+
         }
         //A method to fill the sodamachines inventory with soda can objects.
         public void FillInventory()
-        {
+
+        {   for(int i = 0; i < 10; i++)
+            {
+                OrangeSoda orangeSoda = new OrangeSoda();
+                _inventory.Add(orangeSoda);               
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                Cola cola = new Cola();
+                _inventory.Add(cola);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                RootBeer rootbeer = new RootBeer();
+                _inventory.Add(rootbeer);
+            }
             
         }
         //Method to be called to start a transaction.
@@ -50,13 +87,11 @@ namespace SodaMachine
         //pass payment to the calculate transaction method to finish up the transaction based on the results.
         private void Transaction(Customer customer)
         {
-           
+            string CustomerCanSelection = "";
+            Can canchoice = GetSodaFromInventory(CustomerCanSelection);
+
         }
-        //Gets a soda from the inventory based on the name of the soda.
-        private Can GetSodaFromInventory(string nameOfSoda)
-        {
-          
-        }
+        
 
         //This is the main method for calculating the result of the transaction.
         //It takes in the payment from the customer, the soda object they selected, and the customer who is purchasing the soda.
@@ -76,6 +111,11 @@ namespace SodaMachine
         private List<Coin> GatherChange(double changeValue)
         {
             
+        }
+        //Gets a soda from the inventory based on the name of the soda.
+        private Can GetSodaFromInventory(string nameOfSoda)
+        {
+
         }
         //Reusable method to check if the register has a coin of that name.
         //If it does have one, return true.  Else, false.

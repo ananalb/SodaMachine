@@ -13,11 +13,8 @@ namespace SodaMachine
         public string Name;
 
         public double Price
-        { 
-            get 
-            {
-                return price;
-            }
+        {
+            get => Price;
         }
         //Constructor (Spawner)
 
