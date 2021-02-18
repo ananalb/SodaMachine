@@ -104,7 +104,10 @@ namespace SodaMachine
         //If the payment does not meet the cost of the soda: despense payment back to the customer.
         private void CalculateTransaction(List<Coin> payment, Can chosenSoda, Customer customer)
         {
-           
+            if(payment > chosenSoda)
+            {
+
+            }
         }
         //Takes in the value of the amount of change needed. 
         //Attempts to gather all the required coins from the sodamachine's register to make change. 
@@ -114,17 +117,23 @@ namespace SodaMachine
         {
 
             List<Coin> coins = new List<Coin>();
-            Coin coin = GetCoinFromRegister("Quarter"); 
-            
-            for (int i = 0; i < _register.Count; i++)
+
+            string name = "";
+            Coin coin = GetCoinFromRegister(name);
+           
+
+            for (int i = 0; i < coins.Count; i++)
             {
-                if ( coin.Value == changeValue)
+                if (coin.Value == changeValue)
                 {
+                    
+                    coins.Remove(coin);
                     return coins;
                 }
             }
             return null;                              
         }
+       
         //Gets a soda from the inventory based on the name of the soda.
         private Can GetSodaFromInventory(string nameOfSoda)
         {
