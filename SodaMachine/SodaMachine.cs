@@ -90,6 +90,7 @@ namespace SodaMachine
             string CustomerCanSelection = "";
             Can canchoice = GetSodaFromInventory(CustomerCanSelection);
 
+            //CalculateTransaction();
         }
         
 
@@ -102,36 +103,74 @@ namespace SodaMachine
         //If the payment is greater than the cost of the soda, but the machine does not have ample change: Despense payment back to the customer.
         //If the payment is exact to the cost of the soda:  Despense soda.
         //If the payment does not meet the cost of the soda: despense payment back to the customer.
-        private void CalculateTransaction(List<Coin> payment, Can chosenSoda, Customer customer)
+        public void CalculateTransaction(List<Coin> payment, Can chosenSoda, Customer customer)
         {
-            if(payment > chosenSoda)
+            double totalPaymentValue = TotalCoinValue(payment);
+            if (totalPaymentValue > chosenSoda.Price)
             {
+                //if ()
+                //{
 
+                //}
+                //find change value
+                //gather change
+                //give soda
             }
+            //else if ()
+            //{
+
+            //}
+            //else if ()
+            //{
+
+            //}
         }
         //Takes in the value of the amount of change needed. 
         //Attempts to gather all the required coins from the sodamachine's register to make change. 
         //Returns the list of coins as change to despense. 
         //If the change cannot be made, return null.
-        private List<Coin> GatherChange(double changeValue)
+        public  List<Coin> GatherChange(double changeValue)
         {
 
-            List<Coin> coins = new List<Coin>();
-
-            string name = "";
-            Coin coin = GetCoinFromRegister(name);
-           
-
-            for (int i = 0; i < coins.Count; i++)
+            List<Coin> coins = new List<Coin>();        
+            
+            while(changeValue > 0)
             {
-                if (coin.Value == changeValue)
+                if(changeValue >= 0.25 && RegisterHasCoin("Quarter"))
                 {
-                    
-                    coins.Remove(coin);
-                    return coins;
+                    Coin quarter = GetCoinFromRegister("Quarter");
+                    coins.Add(quarter);
+                    changeValue -= 0.25;
                 }
+                else if (changeValue >= 0.10 && RegisterHasCoin("Dime"))
+                {
+                    Coin dime = GetCoinFromRegister("Dime");
+                    coins.Add(dime);
+                    changeValue -= 0.10;
+                }
+                else if (changeValue >= 0.05 && RegisterHasCoin("Nickel"))
+                {
+                    Coin nickel = GetCoinFromRegister("Nickel");
+                    coins.Add(nickel);
+                    changeValue -= 0.05;
+                }
+                else if (changeValue >= 0.01 && RegisterHasCoin("Penny"))
+                {
+                    Coin penny = GetCoinFromRegister("Penny");
+                    coins.Add(penny);
+                    changeValue -= 0.01;
+                }
+                else
+                {
+                    //cannot make change
+                    //put change back in register
+                    //no soda for you
+                }
+
             }
-            return null;                              
+
+            return coins;
+                                       
         }
        
         //Gets a soda from the inventory based on the name of the soda.
