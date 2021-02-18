@@ -106,45 +106,71 @@ namespace SodaMachine
         {
            
         }
-        //Takes in the value of the amount of change needed.
-        //Attempts to gather all the required coins from the sodamachine's register to make change.
-        //Returns the list of coins as change to despense.
+        //Takes in the value of the amount of change needed. DONE 
+        //Attempts to gather all the required coins from the sodamachine's register to make change. DOING
+        //Returns the list of coins as change to despense. DONE
         //If the change cannot be made, return null.
         private List<Coin> GatherChange(double changeValue)
         {
-            return null;
+
+            List<Coin> coins = new List<Coin>();
+            Coin coin = GetCoinFromRegister("Quarter"); // How do I look for all of the coins I need?
+            // How do I know when I've gotten enough coins to equal the changeVal
+
+            return coins;
+
+                
         }
         //Gets a soda from the inventory based on the name of the soda.
         private Can GetSodaFromInventory(string nameOfSoda)
         {
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if(_inventory[i].Name == nameOfSoda)
+                {
+                    Can foundSoda = _inventory[i];
+                    _inventory.Remove(foundSoda);
+                    return foundSoda;
+                }
+            }
             return null;
         }
         //Reusable method to check if the register has a coin of that name.
         //If it does have one, return true.  Else, false.
         private bool RegisterHasCoin(string name)
         {
+            for (int i = 0; i < _register.Count; i++)
+            {
+                if (_register[i].Name == name)
+                {
+                    return true;
+                }               
+            }
             return false;
         }
         //Reusable method to return a coin from the register.
         //Returns null if no coin can be found of that name.
         private Coin GetCoinFromRegister(string name)
         {
+            
             for (int i = 0; i < _register.Count; i++)
             {
-                if (_register[i].Name == name)
-                {
+              if (_register[i].Name == name)
+              {
                      Coin foundCoin = _register[i];
                     _register.Remove(foundCoin);
                      return foundCoin;
                 }
             }
-                return null;
+               return null;
             
         }
         //Takes in the total payment amount and the price of can to return the change amount.
         private double DetermineChange(double totalPayment, double canPrice)
         {
-            return 0;
+           double totalChange = totalPayment - canPrice;
+           return totalChange;
+
         }
         //Takes in a list of coins to return the total value of the coins as a double.
         private double TotalCoinValue(List<Coin> payment)
@@ -153,7 +179,6 @@ namespace SodaMachine
             foreach(Coin coin in payment)
             {
                 SodaMachinetotalValue += coin.Value;
-                //Console.WriteLine($"The machine has ${SodaMachinetotalValue}");
 
             }
             return SodaMachinetotalValue;
