@@ -106,20 +106,24 @@ namespace SodaMachine
         {
            
         }
-        //Takes in the value of the amount of change needed. DONE 
-        //Attempts to gather all the required coins from the sodamachine's register to make change. DOING
-        //Returns the list of coins as change to despense. DONE
+        //Takes in the value of the amount of change needed. 
+        //Attempts to gather all the required coins from the sodamachine's register to make change. 
+        //Returns the list of coins as change to despense. 
         //If the change cannot be made, return null.
         private List<Coin> GatherChange(double changeValue)
         {
 
             List<Coin> coins = new List<Coin>();
-            Coin coin = GetCoinFromRegister("Quarter"); // How do I look for all of the coins I need?
-            // How do I know when I've gotten enough coins to equal the changeVal
-
-            return coins;
-
-                
+            Coin coin = GetCoinFromRegister("Quarter"); 
+            
+            for (int i = 0; i < _register.Count; i++)
+            {
+                if ( coin.Value == changeValue)
+                {
+                    return coins;
+                }
+            }
+            return null;                              
         }
         //Gets a soda from the inventory based on the name of the soda.
         private Can GetSodaFromInventory(string nameOfSoda)
