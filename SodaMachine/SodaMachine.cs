@@ -161,10 +161,10 @@ namespace SodaMachine
                     changeValue -= 0.01;
                 }
                 else
-                {
-                    //cannot make change
-                    //put change back in register
-                    //no soda for you
+                {                 
+                    Console.WriteLine("Sorry, the machine can't make change");
+                    DepositCoinsIntoRegister(coins);
+                    Console.WriteLine("The machine can't dispense the soda");
                 }
 
             }

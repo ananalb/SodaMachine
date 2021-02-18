@@ -17,14 +17,14 @@ namespace SodaMachine
             Customer bob = new Customer();
             sodaMachine.CalculateTransaction(testPayment, rootBeer, bob);
             
-            //Can roobeer = new RootBeer();
-            //Customer me = new Customer();
-            //me.GatherCoinsFromWallet(roobeer);
-            Can cola = new Cola();
-            Customer you = new Customer();
-            you.GatherCoinsFromWallet(cola);
-            Simulation simulation = new Simulation();
-            simulation.Simulate();
+            ////Can roobeer = new RootBeer();
+            ////Customer me = new Customer();
+            ////me.GatherCoinsFromWallet(roobeer);
+            //Can cola = new Cola();
+            //Customer you = new Customer();
+            //you.GatherCoinsFromWallet(cola);
+            //Simulation simulation = new Simulation();
+            //simulation.Simulate();
         }
     }
 }
