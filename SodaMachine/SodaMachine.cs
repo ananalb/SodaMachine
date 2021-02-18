@@ -165,14 +165,12 @@ namespace SodaMachine
                     Console.WriteLine("Sorry, the machine can't make change");
                     DepositCoinsIntoRegister(coins);
                     Console.WriteLine("The machine can't dispense the soda");
-                }
-
+                    return null;
+                }              
             }
-
             return coins;
-                                       
-        }
-       
+        }        
+
         //Gets a soda from the inventory based on the name of the soda.
         private Can GetSodaFromInventory(string nameOfSoda)
         {
