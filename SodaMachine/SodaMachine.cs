@@ -89,8 +89,11 @@ namespace SodaMachine
         {
             string CustomerCanSelection = "";
             Can canchoice = GetSodaFromInventory(CustomerCanSelection);
+            List<Coin> Payment = new List<Coin>(); 
 
-           // CalculateTransaction();
+            CalculateTransaction(Payment, canchoice, customer);
+
+            
         }
         
 
@@ -106,29 +109,32 @@ namespace SodaMachine
         public void CalculateTransaction(List<Coin> payment, Can chosenSoda, Customer customer)
         {
             double totalPaymentValue = TotalCoinValue(payment);
-            
-                                
+           
+                                           
             if (totalPaymentValue > chosenSoda.Price)
             {
                 if (totalPaymentValue > chosenSoda.Price)
                 {   
                     DetermineChange(totalPaymentValue,chosenSoda.Price);
-                    GatherChange(totalPaymentValue);                
+                    GatherChange(totalPaymentValue);
                     _inventory.Remove(chosenSoda);
-                }             
+                    customer.AddCoinsIntoWallet(payment);
+
+                }
+               
             }
             else if (totalPaymentValue == chosenSoda.Price)
             {
 
-                _inventory.Remove(chosenSoda);              
+                _inventory.Remove(chosenSoda);
+                customer.AddCanToBackpack(chosenSoda);             
                
             }
             else if (totalPaymentValue < chosenSoda.Price)
-            {              
-                
+            {                             
                 DepositCoinsIntoRegister(payment);
-                Console.WriteLine($"Please deposit ${chosenSoda.Price} to get your chosen soda");              
-                
+                customer.AddCoinsIntoWallet(payment);
+                Console.WriteLine($"Please deposit ${chosenSoda.Price} to get your chosen soda");                            
             }
         }
         //Takes in the value of the amount of change needed. 

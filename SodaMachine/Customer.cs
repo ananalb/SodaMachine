@@ -39,7 +39,7 @@ namespace SodaMachine
                 {
                     Coin foundCoin = GetCoinFromWallet(UserSelectedCoinName);
                     payment.Add(foundCoin);
-                }
+                }               
             }                       
             
         }
