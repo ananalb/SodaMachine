@@ -90,10 +90,9 @@ namespace SodaMachine
             string CustomerCanSelection = "";
             Can canchoice = GetSodaFromInventory(CustomerCanSelection);
             List<Coin> Payment = new List<Coin>(); 
-
             CalculateTransaction(Payment, canchoice, customer);
 
-            
+          
         }
         
 
@@ -109,32 +108,32 @@ namespace SodaMachine
         public void CalculateTransaction(List<Coin> payment, Can chosenSoda, Customer customer)
         {
             double totalPaymentValue = TotalCoinValue(payment);
-           
+            double canPrice = chosenSoda.Price;
                                            
-            if (totalPaymentValue > chosenSoda.Price)
+            if (totalPaymentValue > canPrice)
             {
-                if (totalPaymentValue > chosenSoda.Price)
+                if (totalPaymentValue > canPrice)
                 {   
-                    DetermineChange(totalPaymentValue,chosenSoda.Price);
-                    GatherChange(totalPaymentValue);
-                    _inventory.Remove(chosenSoda);
+                    DetermineChange(totalPaymentValue,canPrice);
+                    GatherChange(totalPaymentValue);               
                     customer.AddCoinsIntoWallet(payment);
 
                 }
-               
+                _inventory.Remove(chosenSoda);
+
             }
-            else if (totalPaymentValue == chosenSoda.Price)
+            else if (totalPaymentValue == canPrice)
             {
 
                 _inventory.Remove(chosenSoda);
                 customer.AddCanToBackpack(chosenSoda);             
                
             }
-            else if (totalPaymentValue < chosenSoda.Price)
+            else if (totalPaymentValue < canPrice)
             {                             
                 DepositCoinsIntoRegister(payment);
                 customer.AddCoinsIntoWallet(payment);
-                Console.WriteLine($"Please deposit ${chosenSoda.Price} to get your chosen soda");                            
+                Console.WriteLine($"Please deposit ${canPrice} to get your chosen soda");                            
             }
         }
         //Takes in the value of the amount of change needed. 

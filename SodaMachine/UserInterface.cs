@@ -11,7 +11,7 @@ namespace SodaMachine
         //Intro message that asks user if they wish to make a purchase
         public static bool DisplayWelcomeInstructions(List<Can> sodaOptions)
         {
-            OutputText("\nWelcome to the soda machine.  We only take coins as payment \n");
+            OutputText("\nWelcome to the soda machine.  We take coins & card as payment \n");
             OutputText("At a glance, these are the drink options:\n");
             PrintOptions(sodaOptions);
             bool willProceed = ContinuePrompt("\nWould you like to make a purchase? (y/n)");
@@ -36,13 +36,13 @@ namespace SodaMachine
         }
         //Method for getting user input for the selected coin.
         //Uses a tuple to help group valadation boolean and normalized selection name.
-        public static string CoinSelection(Can selectedCan, List<Coin> paymnet)
+        public static string CoinSelection(Can selectedCan, List<Coin> payment)
         {
             Tuple<bool, string> validatedSelection;
             do
             {
                 DisplayCost(selectedCan);
-                DiplayTotalValueOfCoins(paymnet);
+                DiplayTotalValueOfCoins(payment);
                 Console.WriteLine("\n");
                 Console.WriteLine("Enter -1- for Quarter");
                 Console.WriteLine("Enter -2- for Dime");

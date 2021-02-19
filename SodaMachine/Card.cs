@@ -12,8 +12,9 @@ namespace SodaMachine
 
         public Card()
         {
+            
             availableFunds = 100;
-
+           
         }
     }
 }

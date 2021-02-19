@@ -42,6 +42,9 @@ namespace SodaMachine
                 Coin myCoin = new Penny();
                 Coins.Add(myCoin);
             }
+            
+                Card myCard = new Card();
+                myCard.availableFunds.Equals(100);
 
         }
     }
