@@ -106,6 +106,7 @@ namespace SodaMachine
         public void CalculateTransaction(List<Coin> payment, Can chosenSoda, Customer customer)
         {
             double totalPaymentValue = TotalCoinValue(payment);
+            
                                 
             if (totalPaymentValue > chosenSoda.Price)
             {
@@ -119,10 +120,11 @@ namespace SodaMachine
             else if (totalPaymentValue == chosenSoda.Price)
             {
 
-                _inventory.Remove(chosenSoda);
+                _inventory.Remove(chosenSoda);              
+               
             }
             else if (totalPaymentValue < chosenSoda.Price)
-            {   
+            {              
                 
                 DepositCoinsIntoRegister(payment);
                 Console.WriteLine($"Please deposit ${chosenSoda.Price} to get your chosen soda");              

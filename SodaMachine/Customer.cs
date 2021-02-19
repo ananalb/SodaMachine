@@ -27,7 +27,7 @@ namespace SodaMachine
         public List<Coin> GatherCoinsFromWallet(Can selectedCan)
         {
             List<Coin> payment = new List<Coin>();
-            double sodaPrice = selectedCan.Price;
+            
             while (true)
             {
                 string UserSelectedCoinName = UserInterface.CoinSelection(selectedCan, payment);
