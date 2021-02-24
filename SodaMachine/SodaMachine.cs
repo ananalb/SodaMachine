@@ -87,12 +87,11 @@ namespace SodaMachine
         //pass payment to the calculate transaction method to finish up the transaction based on the results.
         private void Transaction(Customer customer)
         {
-            string CustomerCanSelection = "";
+            string CustomerCanSelection = UserInterface.SodaSelection(_inventory);
             Can canchoice = GetSodaFromInventory(CustomerCanSelection);
-            List<Coin> Payment = new List<Coin>(); 
+            List<Coin> Payment = customer.GatherCoinsFromWallet(canchoice);
             CalculateTransaction(Payment, canchoice, customer);
-
-          
+         
         }
         
 
